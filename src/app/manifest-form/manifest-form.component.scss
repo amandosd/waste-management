@@ -1,0 +1,99 @@
+
+.filled-list >div > .mat-grid-tile{
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.blue-point {
+    display: flex;
+    flex-direction: row;
+    color: blue;
+    gap: 15px;
+    width: 300px;
+}
+
+.blue-point::before {
+    display: flex;
+    flex-shrink: 0;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 80%;
+    background-color: blue;
+}
+
+.red-point {
+    display: flex;
+    flex-direction: row;
+    color: red;
+    gap: 15px;
+    width: 300px;
+}
+
+.red-point::before {
+    display: flex;
+    flex-shrink: 0;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 80%;
+    background-color: red;
+}
+
+.yellow-point {
+    display: flex;
+    flex-direction: row;
+    color: yellow;
+    gap: 15px;
+    width: 300px;
+}
+
+.yellow-point::before {
+    display: flex;
+    flex-shrink: 0;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 80%;
+    background-color: yellow;
+}
+
+
+.purple-point {
+    display: flex;
+    flex-direction: row;
+    color: purple;
+    gap: 15px;
+    width: 300px;
+}
+
+.purple-point::before {
+    display: flex;
+    flex-shrink: 0;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 80%;
+    background-color: purple;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field input {
+    width: 100%;
+}
+
+.blue-form-container {
+    border-left: 6px solid blue;
+}
+
+.yellow-form-container {
+    border-left: 6px solid yellow;
+}
+
+.purple-form-container {
+    border-left: 6px solid purple;
+}
