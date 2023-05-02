@@ -1,131 +1,214 @@
-<h2>TCO Waste Manifest</h2>
+<h1>TCO Waste Manifest</h1>
 <p>Manifest number</p>
 <h3>000000-2023 ?</h3>
 
-<div>
-    <mat-grid-list class="filled-list" cols="4">
+<mat-grid-list cols="4" rowHeight="4:1">
+    <mat-grid-tile *ngFor="let item of items" colspan="1" rowspan="1">
+        <div [ngClass]="[item.color, 'point']">
+            {{ item.content }}
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+ 
+<div class="blue form-container">
+    <mat-grid-list cols="4" rowHeight="3:1" gutterSize="10px">
         <mat-grid-tile>
-            <div class="blue-point">
-                Filled in by a representative of the waste generator
+            <div class="mat-form-field-wrapper">
+                <mat-label>Last name, first name</mat-label>
+                <mat-form-field appearance="fill">
+                    <input matInput readonly="true" [value]="user.lastName + ' ' + user.firstName ">
+                </mat-form-field>
             </div>
         </mat-grid-tile>
         <mat-grid-tile>
-            <div class="red-point">
-                Filled in by a representative of the waste generator if waste to be transferred to 3rd party
+            <div class="mat-form-field-wrapper">
+                <mat-label>Badge Number</mat-label>
+                <mat-form-field appearance="fill">
+                    <input matInput readonly="true" [value]="user.badge">
+                </mat-form-field>
             </div>
         </mat-grid-tile>
         <mat-grid-tile>
-            <div class="yellow-point">
-                Filled in by a driver - waste transporter
+            <div class="mat-form-field-wrapper">
+                <mat-label>Phone</mat-label>
+                <mat-form-field appearance="fill">
+                    <input matInput readonly="true" [value]="user.phone">
+                </mat-form-field>
             </div>
         </mat-grid-tile>
         <mat-grid-tile>
-            <div class="purple-point">
-                Filled in by a representative of the waste store facility
+            <div class="mat-form-field-wrapper">
+                <mat-label>Email</mat-label>
+                <mat-form-field appearance="fill">
+                    <input matInput readonly="true" [value]="user.email">
+                </mat-form-field>
             </div>
         </mat-grid-tile>
     </mat-grid-list>
+    <div class="mat-form-field-wrapper">
+        <mat-label>Waste generating facility</mat-label>
+        <mat-form-field appearance="fill">
+            <input matInput readonly="true" [value]="facility">
+        </mat-form-field>
+    </div>
+    <div class="mat-form-field-wrapper">
+        <mat-label>Waste Source</mat-label>
+        <mat-form-field appearance="fill">
+            <mat-select>
+                <mat-option *ngFor="let source of wasteSource" [value]="source.value">
+                    {{source.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="mat-form-field-wrapper">
+        <mat-label>Waste type</mat-label>
+        <mat-form-field appearance="fill">
+            <mat-select>
+                <mat-option *ngFor="let type of wasteType" [value]="type.value">
+                    {{type.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="mat-form-field-wrapper">
+        <mat-label>Location for disposal</mat-label>
+        <mat-form-field appearance="fill">
+            <mat-select>
+                <mat-option *ngFor="let location of locationForDisposal" [value]="location.value">
+                    {{location.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="mat-form-field-wrapper">
+        <mat-label>Disposal method</mat-label>
+        <mat-form-field appearance="fill">
+            <mat-select>
+                <mat-option *ngFor="let method of disposalMethod" [value]="method.value">
+                    {{method.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <p>
+        Production  units, sources of waste: data confirming the accuracy of information about the waste to be removed and disposed of at a specified location.
+    </p>
+    <mat-grid-list cols="2" rowHeight="6:1" gutterSize="10px">
+        <mat-grid-tile>
+            <div class="mat-form-field-wrapper">
+                <mat-label>CC/AFE</mat-label>
+                <mat-form-field appearance="outline">
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="mat-form-field-wrapper">
+                <mat-label>CC/AFE`s owner name</mat-label>
+                <mat-form-field appearance="outline">
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+<div class="yellow form-container">
+    <mat-grid-list cols="2" rowHeight="7:1" gutterSize="10px">
+        <mat-grid-tile>
+            <div class="mat-form-field-wrapper">
+                <mat-label>Transportation company</mat-label>
+                <mat-form-field appearance="fill">
+                    <mat-select placeholder="Select counteragent...">
+                        <mat-option *ngFor="let source of wasteSource" [value]="source.value">
+                            {{source.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="mat-form-field-wrapper">
+                <mat-label>Vehicle plate number</mat-label>
+                <mat-form-field appearance="outline">
+                    <mat-select>
+                        <mat-option *ngFor="let source of wasteSource" [value]="source.value">
+                            {{source.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <p>
+        The receipt of the representative of the transport service: from the moment of loading the waste on to the vehicle until receipt at the delivery point transport service is responsible for the safe handling of them.
+    </p>
+</div>
+<div class="purple form-container">
+    <p>
+        The Representative`s Acknowledgment: This is to confirm the acceptance of the above listed waste.
+    </p>
+    <div class="mat-form-field-wrapper">
+        <mat-label>Mass input mode</mat-label>
+        <mat-radio-group aria-label="Mass input mode">
+            <mat-radio-button value="1">Auto</mat-radio-button>
+            <mat-radio-button value="2">By volume</mat-radio-button>
+            <mat-radio-button value="2">Manual</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <mat-grid-list cols="8" rowHeight="6:1" gutterSize="10px">
+        <mat-grid-tile colspan="2" rowspan="4">
+            <div class="mat-form-field-wrapper">
+                <mat-label>Truck weight with waste, tonnes</mat-label>
+                <mat-form-field appearance="fill">
+                    <input matInput readonly="true">
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="4">
+            <div class="mat-form-field-wrapper">
+                <mat-label>Truck weight w/o waste, tonnes:</mat-label>
+                <mat-form-field appearance="fill">
+                    <input matInput readonly="true">
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="4">
+            <div class="mat-form-field-wrapper">
+                <mat-label>Waste mass, tonnes</mat-label>
+                <mat-form-field appearance="outline">
+                    <input matInput>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="8" rowHeight="3:2"  gutterSize="10px">
+        <mat-grid-tile colspan="2">
+            <div class="mat-form-field-wrapper">
+                <mat-label>Weighing date time:</mat-label>
+                <mat-form-field appearance="fill" >
+                    <input matInput [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+<div class="form-container">
+    <div class="mat-form-field-wrapper">
+        <mat-label>Comments</mat-label>
+        <mat-form-field appearance="outline" >
+            <input matInput [matDatepicker]="picker">
+            <textarea matInput></textarea>
+        </mat-form-field>
+    </div>
+</div>
 
-    <div class="blue-form-container">
-        <mat-grid-list class="filled-list" cols="4">
-            <mat-grid-tile>
-                <div class="field">
-                    <mat-label>First name</mat-label>
-                    <mat-form-field appearance="outline">
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="field">
-                    <mat-label>First name</mat-label>
-                    <mat-form-field appearance="outline">
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="field">
-                    <mat-label>First name</mat-label>
-                    <mat-form-field appearance="outline">
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="field">
-                    <mat-label>First name</mat-label>
-                    <mat-form-field appearance="outline">
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <div class="field">
-            <mat-label>First name</mat-label>
-            <mat-form-field appearance="outline">
-                <input matInput>
-            </mat-form-field>
-        </div>
-        <div class="field">
-            <mat-label>First name</mat-label>
-            <mat-form-field appearance="outline">
-                <input matInput>
-            </mat-form-field>
-        </div>
-        <div class="field">
-            <mat-label>First name</mat-label>
-            <mat-form-field appearance="outline">
-                <input matInput>
-            </mat-form-field>
-        </div>
-        <div class="field">
-            <mat-label>First name</mat-label>
-            <mat-form-field appearance="outline">
-                <input matInput>
-            </mat-form-field>
-        </div>
-    </div>
-    <div class="yellow-form-container">
-        <mat-grid-list class="filled-list" cols="2">
-            <mat-grid-tile>
-                <div class="field">
-                    <mat-label>First name</mat-label>
-                    <mat-form-field appearance="outline">
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="field">
-                    <mat-label>First name</mat-label>
-                    <mat-form-field appearance="outline">
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list>
-    </div>
-    <div class="purple-form-container">
-        <mat-grid-list class="filled-list" cols="2">
-            <mat-grid-tile>
-                <div class="field">
-                    <mat-label>First name</mat-label>
-                    <mat-form-field appearance="outline">
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <div class="field">
-                    <mat-label>First name</mat-label>
-                    <mat-form-field appearance="outline">
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list>
-    </div>
+<div class="form-container">
+    <button mat-raised-button>Save</button>
+    <button mat-stroked-button>Cancel</button>
 </div>
 
 

@@ -1,73 +1,70 @@
-
-.filled-list >div > .mat-grid-tile{
-    justify-content: flex-start;
+.mat-grid-list ::ng-deep .mat-grid-tile-content{
     align-items: flex-start;
+    justify-content: flex-start;
 }
 
-.blue-point {
+/* field description */
+
+.blue.point {
     display: flex;
     flex-direction: row;
-    color: blue;
     gap: 15px;
     width: 300px;
 }
 
-.blue-point::before {
+.blue.point::before {
     display: flex;
     flex-shrink: 0;
     content: '';
     width: 20px;
     height: 20px;
     border-radius: 80%;
-    background-color: blue;
+    background-color: #6AC4C5;
 }
 
-.red-point {
+.red.point {
     display: flex;
     flex-direction: row;
-    color: red;
     gap: 15px;
     width: 300px;
 }
 
-.red-point::before {
+.red.point::before {
     display: flex;
     flex-shrink: 0;
     content: '';
     width: 20px;
     height: 20px;
     border-radius: 80%;
-    background-color: red;
+    background-color: #D03328;
 }
 
-.yellow-point {
+.yellow.point {
     display: flex;
     flex-direction: row;
-    color: yellow;
     gap: 15px;
     width: 300px;
 }
 
-.yellow-point::before {
+.yellow.point::before {
     display: flex;
     flex-shrink: 0;
     content: '';
     width: 20px;
     height: 20px;
     border-radius: 80%;
-    background-color: yellow;
+    background-color: #F7DD52;
 }
 
 
-.purple-point {
+.purple.point {
     display: flex;
     flex-direction: row;
-    color: purple;
     gap: 15px;
     width: 300px;
 }
 
-.purple-point::before {
+.purple.point::before {
     display: flex;
     flex-shrink: 0;
     content: '';
@@ -77,23 +74,48 @@
     background-color: purple;
 }
 
-.field {
+/* forms */
+
+.form-container {
+    margin: 45px 0;
+}
+
+.form-container ::ng-deep {
+    padding: 15px;
+}
+
+.form-container ::ng-deep .mat-form-field-wrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
+
+    mat-label {
+        margin-bottom: 10px;
+    }
+
+    .mat-form-field-appearance-legacy.mat-form-field-readonly .mat-form-field-underline {
+        background-color: red;
+    }
+
+    .mat-form-field input {
+        width: 100%;
+    }
 }
 
-.field input {
-    width: 100%;
+.blue.form-container {
+    border-left: 6px solid #6AC4C5;
 }
 
-.blue-form-container {
-    border-left: 6px solid blue;
+.yellow.form-container {
+    border-left: 6px solid #F7DD52;
 }
 
-.yellow-form-container {
-    border-left: 6px solid yellow;
+.purple.form-container {
+    border-left: 6px solid #D889EB;
 }
 
-.purple-form-container {
-    border-left: 6px solid purple;
-}
+.mat-raised-button.mat-success {
+    background-color: blue;
+    color: white;
+ }
